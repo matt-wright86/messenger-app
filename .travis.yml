@@ -13,6 +13,6 @@ deploy:
   app: mattmsngr
   on:
     repo: matt-wright86/messenger-app
-     run:
+  run:
     - "rake db:migrate"
     - "rake cleanup"
