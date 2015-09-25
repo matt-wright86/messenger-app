@@ -83,8 +83,3 @@ production:
   database: messenger_production
   username: messenger
   password: <%= ENV['MESSENGER_DATABASE_PASSWORD'] %>
-
-  test:
-  adapter: postgresql
-  database: travis_ci_test
-  username: postgres
