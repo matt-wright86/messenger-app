@@ -17,19 +17,5 @@ class SignupTest < Capybara::Rails::TestCase
 
   end
 
-  class SignupTest < Capybara::Rails::TestCase
-    # 
-    # test "sign in" do
-    #
-    #   visit root_path
-    #
-    #   fill_in "Email", with: "matt@gmail.com"
-    #   fill_in "Password", with: "12345678"
-    #   click_button "Sign In"
-    #
-    #   assert_content page, "brekka"
-    # end
-
-  end
 
 end
