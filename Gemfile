@@ -51,3 +51,7 @@ gem "minitest-rails"
 gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'simple_form'
+
+gem "acts_as_follower"
+
+gem "faker"

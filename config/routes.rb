@@ -1,17 +1,28 @@
 Rails.application.routes.draw do
+  get 'following/create'
+
+  get 'following/delete'
+
   get 'users/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get 'messages/:id' => 'messages#show'
+  get 'messages/new' => 'messages#new', as: :new_msg
+  get 'messages/:id' => 'messages#show', as: :msg
+  post 'messages' => 'messages#create', as: :messages
+
 
   get 'users/new' => 'users#new', as: :sign_up
   post 'users/new' => 'users#create', as: :users
+  get 'users/:id' => 'users#show', as: :user
 
   get '/sign_in' => 'sessions#new', as: :sign_in
   post '/sign_in' => 'sessions#create'
-  post '/sign_out' => 'sessions#destroy', as: :sign_out
+  delete '/sign_in' => 'sessions#delete', as: :sign_out
+
+  post "/users/:id/follow" => "following#create", as: :follow_user
+  post "/users/:id/stop-following" => "following#delete", as: :stop_following_user
 
 
   root 'messages#index'

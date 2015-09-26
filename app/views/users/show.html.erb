@@ -1,0 +1,17 @@
+<h1><%=@user.email%></h1>
+<small> messages </small>
+<br>
+<% @msg.each do |m|%>
+<%= m.msg%>
+posted <%= distance_of_time_in_words_to_now(m.created_at) %> ago
+<hr>
+<%end%>
+<br>
+
+
+<hr>
+<% if @current_user.following? @user %>
+  <%= link_to "Stop Following #{@user.email}", stop_following_user_path(id: @user.id), method: :post %>
+<% else %>
+  <%= link_to "Follow #{@user.email}", follow_user_path(id: @user.id), method: :post %>
+<% end %>

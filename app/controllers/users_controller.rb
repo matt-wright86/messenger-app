@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!
+
+
   def new
     @user = User.new
   end
@@ -12,7 +15,12 @@ class UsersController < ApplicationController
     else
       render :new
     end
-
   end
+
+  def show
+      @user = User.find(params[:id])
+      @msg = Message.where("user_id = ?", @user.id)
+  end
+
 
 end

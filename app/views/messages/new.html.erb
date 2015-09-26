@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for @message do |f| %>
+    <%= f.input :user_id %>
+    <%= f.input :msg, :cols => 70, :rows => 30 %>
+    <%= f.button :submit %>
+  <% end %>
+
+</div>
