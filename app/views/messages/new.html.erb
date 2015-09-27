@@ -1,8 +1,15 @@
+<div class="page-header text-center">
+  <h1>MSNGR <small>welcome to msngr</small></h1>
+</div>
+
+<div class="newmsg col-md-6 col-md-offset-3">
 <div class="col-md-6 col-md-offset-3">
   <%= simple_form_for @message do |f| %>
-    <%= f.input :user_id %>
-    <%= f.input :msg, :cols => 70, :rows => 30 %>
+    <%= f.hidden_field :user_id, :value => @current_user.id %>
+    <%= f.input :msg, input_html: { :style=> 'width: 100%;', :rows => 4} %>
+
     <%= f.button :submit %>
   <% end %>
+
 
 </div>

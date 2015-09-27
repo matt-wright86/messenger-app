@@ -1,11 +1,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body { background: #fff;
+body {
+  background: #fff;
+   background-image:url(http://i.imgur.com/8CPOGtb.jpg);background-repeat:repeat;
 }
 .container {
-  background: #eae8e8 ;
+  background: #bdc3c7;
 }
 .nav{
   background: white;
+}
+
+.newmsg {
+  background: rgba(189, 195, 198, 0.7);
+  margin-top: 25px;
+  padding: 110px 0px;
+}
+
+.page-header{
+
+margin: 0;
+
+}
+
+.form-group{
+  color: #ecf0f1;
+}
+
+.brex{
+  color: #ecf0f1;
 }

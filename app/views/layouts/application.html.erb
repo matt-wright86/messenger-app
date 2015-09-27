@@ -11,7 +11,7 @@
   <ul class="nav nav-tabs navbar-static-top">
   <li role="presentation" class="active"><a href="/">MSNGR</a></li>
     <%if @current_user%>
-  <li role="presentation"><a href="/users/7">Profile</a></li>
+  <li role="presentation"><%=link_to "Profile", "/users/#{@current_user.id}" %></a></li>
     <%end%>
     <%if @current_user%>
   <li role="presentation"><%=link_to 'New Msg', new_msg_path %></li>
@@ -20,6 +20,12 @@
   <li role="navbar-right" class="navbar-left"><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
     <%end%>
   </ul>
+
+  <div class="brex text-center">
+    <%if @current_user%>
+  <p> welcome to MSNGR <%= @current_user.email %></p>
+    <%end%>
+  </div>
 
 
   <% if alert %>

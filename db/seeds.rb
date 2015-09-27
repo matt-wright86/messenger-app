@@ -1,4 +1,3 @@
-
     kate = User.create
     kate.email = Faker::Internet.free_email
     kate.password = Faker::Internet.password
@@ -29,6 +28,11 @@
     sequin.password = Faker::Internet.password
     sequin.save
 
+    matt = User.create
+    matt.email = "matt@gmail.com"
+    matt.password = "123"
+    matt.save
+
 #messages
     kate.messages.create msg: Faker::Lorem.sentence(3)
     brekka.messages.create msg: Faker::Lorem.sentence(3)
@@ -36,3 +40,4 @@
     sentinel.messages.create msg: Faker::Lorem.sentence(3)
     morgen.messages.create msg: Faker::Lorem.sentence(3)
     sequin.messages.create msg: Faker::Lorem.sentence(3)
+    matt.messages.create msg: "hi everybody"
