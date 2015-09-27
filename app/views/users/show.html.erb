@@ -1,17 +1,28 @@
-<h1><%=@user.email%></h1>
-<small> messages </small>
 <br>
-<% @msg.each do |m|%>
-<%= m.msg%>
-posted <%= distance_of_time_in_words_to_now(m.created_at) %> ago
-<hr>
-<%end%>
-<br>
+<div class="col-md-6 col-md-offset-3">
 
+  <div class="panel panel-primary">
+    <% @msg.each do |m|%>
+    <div class="panel-heading">
+      <h3 class="panel-title"><%=link_to @user.email, user_path(id: @user.id) %></h3>
+    </div>
 
-<hr>
-<% if @current_user.following? @user %>
-  <%= link_to "Stop Following #{@user.email}", stop_following_user_path(id: @user.id), method: :post %>
-<% else %>
-  <%= link_to "Follow #{@user.email}", follow_user_path(id: @user.id), method: :post %>
-<% end %>
+    <div class="panel-body">
+      <%= m.msg%>
+      <br>
+      <small>posted <%=link_to distance_of_time_in_words_to_now(m.created_at), msg_path(id: m.id, uid: @user.id) %> ago</small>
+    </div>
+      <%end%>
+    <div class="panel-footer">
+      <% if @current_user.following? @user %>
+        <%= link_to "Stop Following #{@user.email}", stop_following_user_path(id: @user.id), method: :post %>
+      <% else %>
+        <%= link_to "Follow #{@user.email}", follow_user_path(id: @user.id), method: :post %>
+
+    </div>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

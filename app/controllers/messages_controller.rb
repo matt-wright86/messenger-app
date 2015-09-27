@@ -5,8 +5,6 @@ class MessagesController < ApplicationController
   def index
     @users = User.where("id != ?", @current_user.id)
     @people = @current_user.following_users
-    
-
   end
 
   def new
@@ -15,7 +13,7 @@ class MessagesController < ApplicationController
 
 def show
     @msg = Message.find(params[:id])
-    @user = User.where("user_id = ?", @msg.id)
+    @user = User.find(params[:uid])
 end
 
 def create
@@ -25,7 +23,7 @@ def create
     else
       render :new
     end
-  end
+end
 
   def message_params
     params.require(:message).permit(:email, :msg, :created_at, :user_id)

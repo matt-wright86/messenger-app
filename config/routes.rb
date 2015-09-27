@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   get 'messages/new' => 'messages#new', as: :new_msg
-  get 'messages/:id' => 'messages#show', as: :msg
+  # get 'messages/:id' => 'messages#show', as: :msg
   post 'messages' => 'messages#create', as: :messages
 
 
   get 'users/new' => 'users#new', as: :sign_up
   post 'users/new' => 'users#create', as: :users
   get 'users/:id' => 'users#show', as: :user
+  get 'users/:uid/messages/:id' => 'messages#show', as: :msg
 
   get '/sign_in' => 'sessions#new', as: :sign_in
   post '/sign_in' => 'sessions#create'

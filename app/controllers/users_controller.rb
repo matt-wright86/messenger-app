@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!
+
 
 
   def new
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new params.require(:user).permit(:email, :password, :password_confirmation)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to root_path, notice: "Welcome to Msngr"
     else
       render :new
     end

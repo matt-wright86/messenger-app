@@ -8,6 +8,29 @@
 </head>
 <body>
 
+  <ul class="nav nav-tabs navbar-static-top">
+  <li role="presentation" class="active"><a href="/">MSNGR</a></li>
+    <%if @current_user%>
+  <li role="presentation"><a href="/users/7">Profile</a></li>
+    <%end%>
+    <%if @current_user%>
+  <li role="presentation"><%=link_to 'New Msg', new_msg_path %></li>
+    <%end%>
+    <%if @current_user%>
+  <li role="navbar-right" class="navbar-left"><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
+    <%end%>
+  </ul>
+
+
+  <% if alert %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
+
+    <% if notice %>
+      <div class="alert alert-info"><%= notice %></div>
+    <% end %>
+
+
 <%= yield %>
 
 </body>
