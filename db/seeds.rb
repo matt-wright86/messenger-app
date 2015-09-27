@@ -35,6 +35,9 @@
 
 #messages
     kate.messages.create msg: Faker::Lorem.sentence(3)
+    kate.messages.create msg: Faker::Lorem.sentence(3)
+    kate.messages.create msg: Faker::Lorem.sentence(3)
+    kate.messages.create msg: Faker::Lorem.sentence(3)
     brekka.messages.create msg: Faker::Lorem.sentence(3)
     moodi.messages.create msg: Faker::Lorem.sentence(3)
     sentinel.messages.create msg: Faker::Lorem.sentence(3)
