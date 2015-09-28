@@ -28,7 +28,6 @@ end
 
   def message_params
     params.require(:message).permit(:email, :msg, :created_at, :user_id, :current_user)
-
   end
 
 end
