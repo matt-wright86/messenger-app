@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 
-before_action :auth_check!
 
   def create
 
