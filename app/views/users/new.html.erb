@@ -1,10 +1,11 @@
 <div class="page-header text-center">
   <h1>MSNGR <small>sign up</small></h1>
 </div>
-
+<br>
 <div class="col-md-6 col-md-offset-3">
 <%= simple_form_for @user do |f| %>
 
+  <%=f.input :avatar, collection: ["http://robohash.org/N24.png", "http://robohash.org/ZNF.png", "http://robohash.org/EG8.png"], input_html: { class: "ui dropdown", maxlength: 60, }, prompt: "choose avatar", label: false %>
   <%=f.input :email %>
   <%=f.input :password %>
   <%=f.input :password_confirmation, label: "Password Confirmation" %>

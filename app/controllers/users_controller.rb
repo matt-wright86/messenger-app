@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new params.require(:user).permit(:email, :password, :password_confirmation)
+    @user = User.new params.require(:user).permit(:email, :password, :password_confirmation, :avatar)
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Welcome to Msngr"
