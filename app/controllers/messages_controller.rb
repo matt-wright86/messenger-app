@@ -3,10 +3,19 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.where("id != ?", @current_user.id)
-    @me = User.where("id = ?", @current_user.id)
-    @people = @current_user.following_users
+     @users = User.where("id != ?", @current_user.id)
+    #  @current_user.following_users
+
+    follower_ids = @current_user.following_users.pluck(:id)
+    all_ids = follower_ids <<  @current_user.id
+    @people = Message.where(user_id: all_ids).order("created_at DESC")
   end
+
+
+    # follower_ids = following_users.pluck(:id)
+    # all_ids = follower_ids << user.id
+    # Message.where(user_id: all_ids).order("created_at DESC")
+
 
   def new
     @message = Message.new

@@ -6,48 +6,19 @@
 </div>
 
 <div class="container col-md-6 col-md-offset-3">
-<% @me.each do |m|%>
-<% m.messages.each do |t| %>
+<% @people.each do |msg| %>
 <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title text-top">
-      <div class="media">
-      <div class="media-left">
-          <img class="media-object">
-          <%= image_tag m.avatar, class: "img-thumbnail" %>
-        </div>
-      </div>
-      <%= link_to m.email, user_path(id: m.id) %></h3>
+  <div class="panel-heading media-heading">
+    <h3 class="panel-title">
+      <%= link_to msg.user.email, user_path(id: msg.user.id) %>
+      <%= image_tag msg.user.avatar, class: "img-thumbnail" %></h3>
   </div>
-  <div class="panel-body">
-    <%= t.msg %>
-    <br>
-    <small>posted <%=link_to distance_of_time_in_words_to_now(t.created_at), msg_path(id: t.id, uid: m.id) %> ago</small>
-  </div>
-</div>
-<%end%>
-<%end%>
 
-<% @people.each do |user| %>
-  <% user.messages.each do |msg| %>
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title text-top">
-      <div class="media">
-      <div class="media-left">
-          <img class="media-object">
-          <%= image_tag user.avatar, class: "img-thumbnail" %>
-        </div>
-      </div>
-      <%= link_to user.email, user_path(id: user.id) %></h3>
-  </div>
   <div class="panel-body">
-    <%= msg.msg %>
-    <br>
-    <small>posted <%=link_to distance_of_time_in_words_to_now(msg.created_at), msg_path(id: msg.id, uid: user.id) %> ago</small>
+    <p><%= msg.msg %></p>
+    <small>posted <%=link_to distance_of_time_in_words_to_now(msg.created_at), msg_path(id: msg.id, uid: msg.user.id) %> ago</small>
   </div>
 </div>
-<% end %>
 <% end %>
 </div>
 

@@ -17,7 +17,7 @@ class SignupTest < Capybara::Rails::TestCase
   end
 
 
-  test "Sign in and see tl" do
+  test "Sign in and see tl, follow user, see users msg" do
 
     m1 = User.create email: "matt5@gmail.com", password: "12345678"
     m2 = User.create email: "matt@gmail.com", password: "12345678"
@@ -33,12 +33,11 @@ class SignupTest < Capybara::Rails::TestCase
 
     assert_content page, "welcome to msngr"
     assert_content page, "interesting people"
-
     click_link "Follow matt@gmail.com"
 
     assert_content page, "this is the newest, newest test"
-  end
 
+  end
 
 
 
