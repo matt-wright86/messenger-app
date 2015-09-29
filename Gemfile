@@ -55,5 +55,3 @@ gem 'simple_form'
 gem "acts_as_follower"
 
 gem "faker"
-
-gem "launchy"
