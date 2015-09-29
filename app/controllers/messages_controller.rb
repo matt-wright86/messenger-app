@@ -28,6 +28,7 @@ end
 
 def create
     @message = Message.new message_params
+    @message.user = @current_user
     if @message.save
       redirect_to root_path
     else
@@ -36,7 +37,7 @@ def create
 end
 
   def message_params
-    params.require(:message).permit(:email, :msg, :created_at, :user_id, :current_user)
+    params.require(:message).permit(:email, :msg)
   end
 
 end
